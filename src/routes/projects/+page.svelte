@@ -58,7 +58,7 @@
   </script>
   
   <main class="p-4">
-    <div class="flex flex-wrap -mx-2">
+    <div class="flex flex-wrap -mx-2 ">
       {#each cards as card (card.title)}
         <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4">
           <Card
@@ -73,3 +73,9 @@
     </div>
   </main>
   
+  <style>
+main {
+    font-family: Space Grotesk;
+    width: 100%;
+    overflow: hidden;
+  }  </style>
