@@ -1,5 +1,6 @@
 <!-- src/components/Card.svelte -->
 <script>
+  export let id ;
   export let title;
   export let description;
   export let image;
@@ -22,11 +23,13 @@
     </span>
   </div>
   <div class="px-6 py-4">
-    <button
+    <a href="/projects/{id}">
+      <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      on:click={viewDetails}
     >
       Click to View
     </button>
+    </a>
+    
   </div>
 </div>
