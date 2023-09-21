@@ -180,16 +180,10 @@
             <p class="text-gray-600 mb-4">{data.description}</p>
             <div class="flex items-center space-x-4">
                 <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span class="text-gray-600">{data.likes} Likes</span>
+                    <span class="text-gray-600">❤️{data.likes} Likes</span>
                 </div>
                 <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span class="text-gray-600">{data.votes} Votes</span>
+                    <span class="text-gray-600">⬆️{data.votes} Votes</span>
                 </div>
             </div>
             <div class="mt-4">
@@ -219,11 +213,21 @@
         </div>
         <div class="px-6 py-4">
             <h2 class="text-lg font-semibold text-gray-800">Code Folders:</h2>
-            <ul class="list-disc list-inside mt-2">
-                {#each data.folders as folder}
-                    <li class="text-gray-600">{folder}</li>
-                {/each}
-            </ul>
+            <div>
+                <ul class="directory">
+                    <li class="folder">Folder 1
+                      <ul>
+                        <li class="file">File 1</li>
+                        <li class="folder">Subfolder 1
+                          <ul>
+                            <li class="file">File 2</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="file">File 3</li>
+                  </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -232,3 +236,43 @@
     <div class="text-center text-red-500 mt-4">Card not found</div>
 </div>
 {/if}
+
+<style>
+    /* Reset some default styles */
+body, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Basic styling for folder and file items */
+.folder::before {
+  content: "📁"; /* Unicode folder icon */
+  margin-right: 4px;
+}
+
+.file::before {
+  content: "📄"; /* Unicode file icon */
+  margin-right: 4px;
+}
+
+/* Add some indentation for nested items */
+ul {
+  padding-left: 20px;
+}
+
+/* Style folder and file items differently */
+.folder {
+  font-weight: bold;
+}
+
+/* Style folder items to be expandable/collapsible (not functional) */
+.folder ul {
+  display: none;
+}
+
+.folder:hover ul {
+  display: block;
+}
+
+</style>
